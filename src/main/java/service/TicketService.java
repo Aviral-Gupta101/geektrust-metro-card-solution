@@ -11,7 +11,9 @@ public class TicketService {
     private static final MetroCardService metroCardService = new MetroCardService();
     private static final PassengerService passengerService = new PassengerService();
     private static final StationService stationService = new StationService();
-    private static final int transactionFees = 2;
+
+    private static final int transactionFeesPercent = 2; // 2 is for transaction fees on card recharge
+    private static final float discountRate = 0.5f; // 0.5f is the discount rate
 
     public void checkIn(String cardId, PassengerType passengerType, String stationName) {
 
@@ -50,7 +52,7 @@ public class TicketService {
         boolean isRoundTrip = passenger.isRoundTrip(stationName);
 
         if(isRoundTrip)
-            discount = fare/2;
+            discount = (int)(fare * discountRate);
 
         int totalFare = fare - discount;
 
@@ -60,7 +62,7 @@ public class TicketService {
         else {
             metroCardService.resetBalance(carId);
             int negativeBalance = totalFare - passengerBalance;
-            totalFare = totalFare + (transactionFees * negativeBalance)/100;
+            totalFare = totalFare + (transactionFeesPercent * negativeBalance)/100;
         }
 
 //        System.out.println("TOTAL FARE: " + totalFare + " station : " + stationName);

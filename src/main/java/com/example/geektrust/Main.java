@@ -1,19 +1,11 @@
 package com.example.geektrust;
 
-import domain.BalanceCommand;
-import domain.CheckInCommand;
-import domain.Command;
-import domain.PrintCommand;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        Command balanceCommand = new BalanceCommand();
-        Command checkInCommand = new CheckInCommand();
-        Command printCommand = new PrintCommand();
 
         try {
 
@@ -25,22 +17,11 @@ public class Main {
                 String line = sc.nextLine();
                 String[] token = line.split(" ");
 
-                if("BALANCE".equals(token[0]))
-                    balanceCommand.execute(token);
-
-                else if("CHECK_IN".equals(token[0]))
-                    checkInCommand.execute(token);
-
-                else if("PRINT_SUMMARY".equals(token[0]))
-                    printCommand.execute(token);
-                else
-                    System.out.println("Invalid command");
+                Solution.solve(token);
             }
             sc.close();
         } catch (IOException e) {
-
             System.out.println("Error reading file");
         }
-
     }
 }

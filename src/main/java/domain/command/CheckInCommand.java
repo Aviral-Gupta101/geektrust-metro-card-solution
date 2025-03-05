@@ -1,4 +1,4 @@
-package domain;
+package domain.command;
 
 import service.TicketService;
 import utils.enums.PassengerType;

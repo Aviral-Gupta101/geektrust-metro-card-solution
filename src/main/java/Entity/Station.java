@@ -2,7 +2,6 @@ package Entity;
 
 import utils.enums.PassengerType;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Station {
@@ -30,7 +29,7 @@ public class Station {
     }
 
     public List<PassengerType> getPassengers() {
-        return Collections.unmodifiableList(passengersTypes);
+        return new ArrayList<>(passengersTypes);
     }
 
     public void addPassenger(PassengerType passengerType) {
