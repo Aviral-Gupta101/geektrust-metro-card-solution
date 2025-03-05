@@ -11,6 +11,7 @@ public class TicketService {
     private static final MetroCardService metroCardService = new MetroCardService();
     private static final PassengerService passengerService = new PassengerService();
     private static final StationService stationService = new StationService();
+    private static final int transactionFees = 2;
 
     public void checkIn(String cardId, PassengerType passengerType, String stationName) {
 
@@ -59,7 +60,7 @@ public class TicketService {
         else {
             metroCardService.resetBalance(carId);
             int negativeBalance = totalFare - passengerBalance;
-            totalFare = totalFare + (2 * negativeBalance)/100;
+            totalFare = totalFare + (transactionFees * negativeBalance)/100;
         }
 
 //        System.out.println("TOTAL FARE: " + totalFare + " station : " + stationName);
