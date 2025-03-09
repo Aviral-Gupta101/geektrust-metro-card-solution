@@ -9,4 +9,6 @@ public interface MetroCardRepository {
     MetroCard saveCard(MetroCard metroCard);
 
     Optional<MetroCard> findById(String cardId);
+
+    void clearRepository();
 }

@@ -26,4 +26,8 @@ public class StationRepositoryImpl implements StationRepository {
         return Optional.of(result);
     }
 
+    public void clearRepository() {
+        stationMap.clear();
+    }
+
 }

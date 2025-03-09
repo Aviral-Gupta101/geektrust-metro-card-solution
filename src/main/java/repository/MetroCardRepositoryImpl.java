@@ -26,4 +26,8 @@ public class MetroCardRepositoryImpl implements MetroCardRepository {
         return Optional.of(result);
     }
 
+    public void clearRepository() {
+        metroCardMap.clear();
+    }
+
 }

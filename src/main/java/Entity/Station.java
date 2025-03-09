@@ -43,10 +43,20 @@ public class Station {
 
 
     public void addTotalCollections(int amount) {
+
+        if(amount < 0) {
+            throw new IllegalArgumentException("Total collections cannot be less than zero");
+        }
+
         totalCollections += amount;
     }
 
     public void addDiscount(int amount) {
+
+        if(amount < 0) {
+            throw new IllegalArgumentException("Discount cannot be less than zero, discount: " + amount);
+        }
+
         totalDiscount += amount;
     }
 

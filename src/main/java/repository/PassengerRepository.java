@@ -8,4 +8,6 @@ public interface PassengerRepository {
     Passenger save(Passenger passenger);
 
     Optional<Passenger> findById(String cardId);
+
+    void clearRepository();
 }

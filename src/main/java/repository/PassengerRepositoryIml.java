@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-
 public class PassengerRepositoryIml implements PassengerRepository {
 
     private static final Map<String, Passenger> passengerMap = new HashMap<>();
@@ -26,4 +25,7 @@ public class PassengerRepositoryIml implements PassengerRepository {
         return Optional.of(result);
     }
 
+    public void clearRepository() {
+        passengerMap.clear();
+    }
 }
