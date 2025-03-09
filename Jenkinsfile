@@ -12,15 +12,16 @@ pipeline {
             }
         }
         stage('Publish Report') {
-//             steps {
-//                 publishHTML (target: [
-//                     reportDir: 'target/site',
-//                     reportFiles: 'surefire-report.html',
-//                     reportName: 'Test Report',
-//                     keepAll: true
-//                 ])
-//             }
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: 'https://img.icons8.com/?size=100&id=123822&format=png&color=000000', keepAll: false, reportDir: 'target/site', reportFiles: 'surefire-report.html', reportName: 'Surefire Test Report', reportTitles: '', useWrapperFileDirectly: true])
+            steps {
+                publishHTML (target: [
+                    reportDir: 'target/site',
+                    reportFiles: 'surefire-report.html',
+                    reportName: 'Surefire Test Report',
+                    icon: 'https://img.icons8.com/?size=100&id=123822&format=png&color=000000',
+                    keepAll: false,
+                ])
+            }
+            // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: 'https://img.icons8.com/?size=100&id=123822&format=png&color=000000', keepAll: false, reportDir: 'target/site', reportFiles: 'surefire-report.html', reportName: 'Surefire Test Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
 }
